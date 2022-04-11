@@ -11,9 +11,9 @@ computation.
 
 # Prerequisites
 Linux or macOS 
-Python 3.6+
-PyTorch 1.3+
-CUDA 9.2+
+Python 3.7+
+PyTorch 1.11
+CUDA 11.3
 GCC 5+
 
 # Dataset preparations
