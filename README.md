@@ -46,5 +46,5 @@ Figure below shows the performance of DETR. These three images from top to botto
 ![show_epc3](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/1.png)
 
 We can also observed that the complexity of images influences the detection performance. Figure below gives an example.
-![show_epc3]（https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/2.png)
-![show_epc3](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/3.png)
+![show_epc4](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/2.png = 100x200)
+![show_epc5](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/3.png = 100x200)
