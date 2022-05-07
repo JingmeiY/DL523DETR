@@ -45,7 +45,8 @@ python test2.py --coco_path ../coco/images/test2017 --resume output/checkpoint_9
 Figure below shows the performance of DETR. These three images from top to bottom are output by the same model with three different epochs: 5, 15, and 20 using ResNet50 backbone.
 ![show_epc3](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/1.png)
 
-We can also observed that the complexity of images influences the detection performance. Figure below gives an example.
+We can also observed that the complexity of images influences the detection performance. Figure below gives an example. The top image is more complicated, with more objects and categories, including Car, Tree, Parking Meter, Fence, Soil, while in the down image, it has a simpler background and the detector can output more accurate and high-quality results.
+
 ![show_epc4](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/2.png)
 ![show_epc5](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/3.png)
 
