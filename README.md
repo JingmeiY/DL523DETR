@@ -10,7 +10,7 @@ The three main components in this scheme are a CNN backbone, an encoder-decoder 
 
 
 # Structure of Swin T
-The reimplemented code structure is the same as the framework exhibited on paper [Swin Transformer Hierarchical Vision Transformer using ShiftedWindows]. The shifted windowing scheme increases efficiency by limiting self-attention computation to non-overlapping local windows while allowing for cross-window connection. It starts from small-sized patches and gradually merges neighboring patches into deeper Transformer layers to construct a hierarchical representation. This design has linear computational complexity by computing self-attention locally within non-overlapping windows. The overall structure is shown in [Swin Transformer Hierarchical Vision Transformer using ShiftedWindows] Figure 3.
+The reimplemented code structure is the same as the framework exhibited on paper [Swin Transformer Hierarchical Vision Transformer using ShiftedWindows](https://arxiv.org/abs/2103.14030). The shifted windowing scheme increases efficiency by limiting self-attention computation to non-overlapping local windows while allowing for cross-window connection. It starts from small-sized patches and gradually merges neighboring patches into deeper Transformer layers to construct a hierarchical representation. This design has linear computational complexity by computing self-attention locally within non-overlapping windows. The overall structure is shown in [Swin Transformer Hierarchical Vision Transformer using ShiftedWindows](https://arxiv.org/abs/2103.14030) Figure 3.
 
 # Prerequisites
 Linux or macOS 
@@ -37,12 +37,13 @@ python -m torch.distributed.launch --nproc_per_node=4 --use_env main.py --coco_p
 ```
 
 # Results
-We trained and tested the model on the WiDER FACE dataset which includes 32203 images and labels 393703 faces as well as the mini-COCO training dataset includes about 25Kimages, roughly 20 \% of the COCO 2017 training set.
+In this project, we used the same hyperparameters as in [Object DEtection with TRansformers](https://arxiv.org/abs/2005.12872). DETR is trained using AdamW with weight decay handling, and gradient clipping is applied with a maximal gradient norm. The learning rate of the backbone is set to be 10-5 since it can stabilize the training process, while the learning rate for the transformer is 10-4.
+
 ```python
 python test2.py --coco_path ../coco/images/test2017 --resume output/checkpoint_9.pth
 ```
-5 epochs:
-![show_epc3](https://user-images.githubusercontent.com/87682737/162815547-7dd5c4cb-4b54-4e53-ba44-014905d7e7aa.png)
-
-10 epochs:
-![show_epc9](https://user-images.githubusercontent.com/87682737/162815659-0928d48d-e1a9-437f-a61f-c6509af304ee.png)
+Figure below shows the performance of DETR. These three images from top to bottom are output by the same model with three different epochs: 5, 15, and 20 using ResNet50 backbone.
+![show_epc3](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/1.png)
+We can also observed that the complexity of images influences the detection performance. Figure below gives an example.
+![show_epc9](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/2.png)
+![show_epc9](https://github.com/JingmeiY/DL523DETR/blob/main/results%20images/3.png)
